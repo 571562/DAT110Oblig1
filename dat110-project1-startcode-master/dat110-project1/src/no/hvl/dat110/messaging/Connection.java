@@ -29,13 +29,11 @@ public class Connection {
 	}
 
 	public void send(Message message) {
-
 		try {
-			outStream.write(message.encapsulate(), 0, 128);
+			outStream.write(message.encapsulate(), 0, MessageConfig.SEGMENTSIZE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Message receive() {
@@ -44,7 +42,7 @@ public class Connection {
 		byte[] recvbuf = new byte[128];
 
 		try {
-			inStream.read(recvbuf, 0 ,128);
+			inStream.read(recvbuf, 0 ,MessageConfig.SEGMENTSIZE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

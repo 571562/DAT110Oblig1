@@ -20,7 +20,7 @@ public class Message {
 
     public byte[] encapsulate() {
 
-        byte[] encoded = new byte[128];
+        byte[] encoded = new byte[MessageConfig.SEGMENTSIZE];
 
         encoded[0] = (byte) payload.length;
 
