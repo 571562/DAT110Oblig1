@@ -39,7 +39,7 @@ public class Connection {
 	public Message receive() {
 
 		Message message = new Message();
-		byte[] recvbuf = new byte[128];
+		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
 
 		try {
 			inStream.read(recvbuf, 0 ,MessageConfig.SEGMENTSIZE);
